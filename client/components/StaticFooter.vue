@@ -1,9 +1,9 @@
 <template>
-  <div>Hello</div>
+  <div>Footer</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'StaticFooter'
 }
 </script>

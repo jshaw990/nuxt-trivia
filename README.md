@@ -9,3 +9,4 @@
 - Nuxt 
 - TypeScript
 - Jest
+- Vuietify

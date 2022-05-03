@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <StaticHeader />
-    <v-main>
+    <v-main class="ma-2">
       <Nuxt />
     </v-main>
     <StaticFooter />

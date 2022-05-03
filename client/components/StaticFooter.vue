@@ -1,24 +1,41 @@
 <template>
   <div>
     <v-footer v-if="$vuetify.breakpoint.mdAndUp">
-      <v-row class="ma-4">
+      <v-row class="ma-4 text-center" justify="center" align="center">
         <NuxtLink to="/">
           <v-icon>mdi-home</v-icon>
-          <span>Home</span>
+          <div>Home</div>
         </NuxtLink>
       </v-row>
     </v-footer>
-    <v-col v-else  class="ma-4">
+    <v-col v-else class="text-center">
       <NuxtLink to="/">
         <v-icon>mdi-home</v-icon>
-        <span>Home</span>
       </NuxtLink>
     </v-col>
+    <v-switch class="flex-end" inset @click="switchTheme" />
   </div>
 </template>
 
 <script>
+import { reactive, toRefs } from '@vue/composition-api'
+
 export default {
-  name: 'StaticFooter'
+  name: 'StaticFooter',
+  setup (props, context) {
+    const state = reactive({
+      dark: true
+    })
+
+    const switchTheme = () => {
+      context.root.$vuetify.theme.dark = !context.root.$vuetify.theme.dark
+      state.dark = context.root.$vuetify.theme.dark
+    }
+
+    return {
+      switchTheme,
+      ...toRefs(state)
+    }
+  }
 }
 </script>
